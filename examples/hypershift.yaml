@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: hypershift-operator-oidc-provider-s3-credentials
+  namespace: local-cluster
+stringData:
+  bucket: hypershift-oidc-a2e2925a-37da-11ed-803b-18cc18d6b71c
+  credentials: |
+    [default]
+    aws_access_key_id = 
+    aws_secret_access_key = 
+  region: ap-southeast-1
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: hypershift-operator-private-link-credentials
+  namespace: local-cluster
+stringData:
+  aws-access-key-id: 
+  aws-secret-access-key: 
+  region: ap-southeast-1
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: hypershift-operator-external-dns-credentials
+  namespace: local-cluster
+stringData:
+  provider: aws
+  domain-filter: service.hypershift.aws.jwilms.net
+  credentials: |
+    [default]
+    aws_access_key_id = 
+    aws_secret_access_key = 
+  region: ap-southeast-1
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: aws-creds
+  namespace: hypershift
+stringData:
+  aws_access_key_id: 
+  aws_secret_access_key: 
+  baseDomain: aws.jwilms.net
+  pullSecret: '
+  ssh-privatekey: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+
+    -----END OPENSSH PRIVATE KEY-----
+  ssh-publickey: 
