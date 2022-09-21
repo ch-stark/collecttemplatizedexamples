@@ -8,8 +8,8 @@ stringData:
   bucket: hypershift-oidc-a2e2925a-37da-11ed-803b-18cc18d6b71c
   credentials: |
     [default]
-    aws_access_key_id = 
-    aws_secret_access_key = 
+      aws_access_key_id: '{{ fromSecret "openshift-cloud-credential-operator" "cloud-credential-operator-iam-ro-creds" "AWS_ACCESS_KEY_ID" | base64dec }}'
+      aws_secret_access_key: '{{ fromSecret "openshift-cloud-credential-operator" "cloud-credential-operator-iam-ro-creds" "AWS_SECRET_ACCESS_KEY" | base64dec }}'
   region: ap-southeast-1
 ---
 apiVersion: v1
