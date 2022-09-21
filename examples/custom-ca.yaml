@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: custom-ca
+  namespace: openshift-ingress
+type: kubernetes.io/tls
+data:
+  tls.crt: '{{hub fromSecret "policies" (printf "tls-%s" .ManagedClusterName) "tls.crt" hub}}' 
+  tls.key: '{{hub fromSecret "policies" (printf "tls-%s" .ManagedClusterName) "tls.key" hub}}'
