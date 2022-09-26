@@ -48,7 +48,7 @@ metadata:
 stringData:
   aws_access_key_id: '{{ fromSecret "openshift-cloud-credential-operator" "cloud-credential-operator-iam-ro-creds" "AWS_ACCESS_KEY_ID" | base64dec }}'
   aws_secret_access_key: '{{ fromSecret "openshift-cloud-credential-operator" "cloud-credential-operator-iam-ro-creds" "AWS_SECRET_ACCESS_KEY" | base64dec }}'
-  baseDomain: aws.jwilms.net
+  baseDomain: aws.cstark.net
 apiVersion: v1
 data:
   .dockerconfigjson: '{{- if eq (lookup "v1" "Secret" "open-cluster-management" "multiclusterhub-operator-pull-secret").kind "Secret" -}} {{- fromSecret "open-cluster-management" "multiclusterhub-operator-pull-secret" ".dockerconfigjson" -}} {{- else -}} {{- fromSecret "openshift-config" "pull-secret" ".dockerconfigjson" -}} {{- end -}}'
